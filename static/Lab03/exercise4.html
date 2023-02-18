@@ -47,12 +47,12 @@
          const slide = document.querySelector("#slide-show");
          const size = option.options.length;
          let isSlide = false;
-
          function display(value) {
             img.setAttribute("src", `images/${value}`);
          }
          let index = option.selectedIndex;
          let show;
+         option.selectedIndex = 0;
 
          option.addEventListener("change", (e) => {
             display(option.value);
