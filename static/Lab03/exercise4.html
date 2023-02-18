@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta charset="UTF-8" />
+      <title>Table</title>
+   </head>
+   <body>
+      <style>
+         * {
+            box-sizing: border-box;
+         }
+
+         select {
+            float: left;
+         }
+         img {
+            float: left;
+            width: 300px;
+            height: 150px;
+            object-fit: cover;
+         }
+      </style>
+
+      <select id="imageList" name="imageList" size="10">
+         <option value="pic_001.jpg">pic_001.jpg</option>
+         <option value="pic_002.jpg">pic_002.jpg</option>
+         <option value="pic_003.jpg">pic_003.jpg</option>
+         <option value="pic_004.jpg">pic_004.jpg</option>
+         <option value="pic_005.jpg">pic_005.jpg</option>
+         <option value="pic_006.jpg">pic_006.jpg</option>
+         <option value="pic_007.jpg">pic_007.jpg</option>
+         <option value="pic_008.jpg">pic_008.jpg</option>
+         <option value="pic_009.jpg">pic_009.jpg</option>
+         <option value="pic_010.jpg">pic_010.jpg</option>
+      </select>
+      <img src="images/pic_001.jpg" />
+      <button type="button" id="back">Back</button>
+      <button type="button" id="slide-show">Start slideshow</button>
+      <button type="button" id="next">Next</button>
+      <p id="image-label">pic_001.jpg (10/55)</p>
+      <script>
+         const option = document.querySelector("#imageList");
+         const img = document.querySelector("img");
+         const back = document.querySelector("#back");
+         const next = document.querySelector("#next");
+         const slide = document.querySelector("#slide-show");
+         const size = option.options.length;
+         let isSlide = false;
+
+         function display(value) {
+            img.setAttribute("src", `images/${value}`);
+         }
+         let index = option.selectedIndex;
+         let show;
+
+         option.addEventListener("change", (e) => {
+            display(option.value);
+         });
+         back.addEventListener("click", (e) => {
+            let index = option.selectedIndex;
+            if (index === 0 || index === -1) {
+               option.selectedIndex = size - 1;
+               let url = option.options[option.selectedIndex].value;
+               display(url);
+            } else {
+               option.selectedIndex = index - 1;
+               let url = option.options[index - 1].value;
+               display(url);
+            }
+         });
+         next.addEventListener("click", (e) => {
+            let index = option.selectedIndex;
+            if (index === -1 || index === size - 1) {
+               option.selectedIndex = 0;
+               let url = option.options[0].value;
+               display(option.options[0].value);
+            } else {
+               option.selectedIndex = index + 1;
+               let url = option.options[index + 1].value;
+               display(url);
+            }
+         });
+         slide.addEventListener("click", (e) => {
+            isSlide = !isSlide;
+            if (isSlide) {
+               next.disabled = true;
+               back.disabled = true;
+               slide.innerText = "Stop slide show";
+               show = setInterval(() => {
+                  console.log(index);
+                  if (index == -1 || index > size - 1) {
+                     index = 0;
+                     option.selectedIndex = index;
+                     display(option.options[index].value);
+                  } else {
+                     ++index;
+                     option.selectedIndex = index;
+                     console.log(option.options[index - 1].value);
+                     display(option.options[index - 1].value);
+                  }
+               }, 1000);
+            } else {
+               next.disabled = false;
+               back.disabled = false;
+               slide.innerText = "Start slide show";
+               clearInterval(show);
+            }
+         });
+      </script>
+   </body>
+</html>

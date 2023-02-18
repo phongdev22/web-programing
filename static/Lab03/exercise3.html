@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>JS DOM Manipulations</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <style></style>
+
+      <div class="container">
+         <div class="row justify-content-center">
+            <div class="col-md-8 myform border rounded p-4 mt-5">
+               <div class="form-group">
+                  <label for="message">Text content:</label>
+                  <input
+                     onkeyup="changeMessage()"
+                     type="text"
+                     class="form-control"
+                     id="message"
+                     placeholder="Enter new text"
+                     name="message"
+                  />
+               </div>
+               <div class="form-group">
+                  <label for="color">Text color:</label>
+                  <select name="color" id="color" class="custom-select" onchange="changeColor()">
+                     <option value="0">Black</option>
+                     <option value="1">Red</option>
+                     <option value="2">Green</option>
+                     <option value="3">Blue</option>
+                  </select>
+               </div>
+               <div class="form-group">
+                  <div class="custom-control custom-switch">
+                     <input type="checkbox" class="custom-control-input" id="bold" onchange="changeBold()" />
+                     <label class="custom-control-label" for="bold">Bold</label>
+                  </div>
+
+                  <div class="custom-control custom-switch">
+                     <input type="checkbox" class="custom-control-input" id="italic" onchange="changeItalic()" />
+                     <label class="custom-control-label" for="italic">Italic</label>
+                  </div>
+
+                  <div class="custom-control custom-switch">
+                     <input type="checkbox" class="custom-control-input" id="underline" onchange="changeUnder()" />
+                     <label class="custom-control-label" for="underline">Underline</label>
+                  </div>
+               </div>
+               <button type="button" class="btn btn-success" onclick="restore()">Restore Default</button>
+            </div>
+         </div>
+         <div class="row justify-content-center mt-3">
+            <div id="display-message" class="col-md-8 alert alert-success text-center">
+               This text will be changed immediately when typing new text.
+            </div>
+         </div>
+      </div>
+      <script>
+         const message = document.querySelector("#display-message");
+         function changeMessage() {
+            const text = document.querySelector("#message");
+            message.innerText = text.value;
+         }
+         function changeColor() {
+            const color = document.querySelector("#color");
+            switch (color.value) {
+               case "0":
+                  message.style.color = "black";
+                  break;
+               case "1":
+                  message.style.color = "red";
+                  break;
+               case "2":
+                  message.style.color = "green";
+                  break;
+               default:
+                  message.style.color = "blue";
+                  break;
+            }
+         }
+         function changeBold() {
+            const option = document.querySelector("#bold");
+            if (option.checked) {
+               message.style.fontWeight = "bold";
+            } else {
+               message.style.fontWeight = "normal";
+            }
+         }
+         function changeItalic() {
+            const option = document.querySelector("#italic");
+            if (option.checked) {
+               message.style.fontStyle = "italic";
+            } else {
+               message.style.fontStyle = "normal";
+            }
+         }
+         function changeUnder() {
+            const option = document.querySelector("#underline");
+            if (option.checked) {
+               message.style.textDecoration = "underline";
+            } else {
+               message.style.textDecoration = "none";
+            }
+         }
+         function restore() {
+            const color = document.querySelector("#color");
+            const option1 = document.querySelector("#bold");
+            const option2 = document.querySelector("#italic");
+            const option3 = document.querySelector("#underline");
+            color.value = "0";
+            option1.checked = false;
+            option2.checked = false;
+            option3.checked = false;
+            message.style = "";
+         }
+      </script>
+   </body>
+</html>

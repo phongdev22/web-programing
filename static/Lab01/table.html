@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+         td {
+            text-align: center;
+         }
+
+         table,
+         th,
+         td {
+            border: 1px solid black;
+         }
+
+         th.days {
+            color: rgb(56, 39, 167);
+         }
+         th.lunch {
+            background-color: rgb(182, 234, 96);
+         }
+
+         td.lab {
+            background-color: rgb(255, 230, 138);
+         }
+         td.empty {
+            background-color: rgb(210, 210, 210);
+         }
+      </style>
+   </head>
+   <body>
+      <table style="width: 100%; height: 100vh">
+         <tr>
+            <th colspan="6" style="color: rgb(178, 171, 228)">STUDENT SCHEDULE</th>
+         </tr>
+
+         <tr>
+            <th class="days">DAY/PERIOD</th>
+            <th>I</th>
+            <th>II</th>
+            <th class="lunch" rowspan="8">LUNCH</th>
+            <th>III</th>
+            <th>IV</th>
+         </tr>
+
+         <tr>
+            <th class="days">MONDAY</th>
+            <td>Math</td>
+            <td>Physics</td>
+            <td class="empty" rowspan="2" colspan="2"></td>
+         </tr>
+
+         <tr>
+            <th class="days">TUESDAY</th>
+            <td class="lab" colspan="2">LAB</td>
+         </tr>
+
+         <tr>
+            <th class="days">WEDNESDAY</th>
+            <td>History</td>
+            <td>Music</td>
+            <td class="seminar" colspan="2">Seminar</td>
+         </tr>
+         <tr>
+            <th class="days">THURSDAY</th>
+            <td>Physical Education</td>
+            <td>Swimming</td>
+            <td>Chemistry</td>
+            <td>Biology</td>
+         </tr>
+         <tr>
+            <th class="days">FRIDAY</th>
+            <td class="lab" colspan="2">LAB</td>
+            <td>Geography</td>
+            <td>Infomatics</td>
+         </tr>
+         <tr>
+            <th class="days">SATURDAY</th>
+            <td>Math</td>
+            <td>Physics</td>
+            <td class="lab" colspan="2">LAB</td>
+         </tr>
+         <tr>
+            <th class="days">SUNDAY</th>
+            <td class="empty" colspan="2"></td>
+            <td class="empty"></td>
+            <td>Homework</td>
+         </tr>
+      </table>
+   </body>
+</html>

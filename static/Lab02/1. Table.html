@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta
+         name="viewport"
+         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>Document</title>
+      <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+         h3 {
+            font-size: 40px;
+            text-transform: uppercase;
+            text-align: center;
+            color: green;
+            margin: 10px 0;
+         }
+         table {
+            width: 80%;
+            height: 40%;
+            margin: auto;
+            border: 3px dashed red;
+            border-collapse: collapse;
+            text-align: center;
+         }
+         td {
+            height: 40px;
+            font-size: 24px;
+            border: 2px solid red;
+            padding: 10px;
+         }
+         .upper {
+            text-transform: uppercase;
+            font-weight: 600;
+         }
+         .blue {
+            background-color: blue;
+            color: white;
+         }
+         .none {
+            background-color: aquamarine;
+         }
+         .lab {
+            background-color: bisque;
+         }
+         .lunch {
+            text-transform: uppercase;
+            font-weight: 600;
+            background-color: bisque;
+         }
+      </style>
+   </head>
+   <body>
+      <h3>student schedule</h3>
+      <table>
+         <tbody>
+            <tr>
+               <td class="upper blue">Day/Period</td>
+               <td class="blue">I</td>
+               <td class="blue">II</td>
+               <td rowspan="8" class="lunch">lunch</td>
+               <td class="blue">III</td>
+               <td class="blue">IV</td>
+            </tr>
+            <tr>
+               <td class="upper">Monday</td>
+               <td>Math</td>
+               <td>Physics</td>
+               <td class="none" colspan="2" rowspan="2"></td>
+            </tr>
+            <tr>
+               <td class="upper">Tuesday</td>
+               <td colspan="2" class="lab">LAB</td>
+            </tr>
+            <tr>
+               <td class="upper">Wednesday</td>
+               <td>History</td>
+               <td>Music</td>
+               <td colspan="2">SEMINAR</td>
+            </tr>
+            <tr>
+               <td class="upper">Thursday</td>
+               <td>Physical Education</td>
+               <td>Swimming</td>
+               <td>Chemistry</td>
+               <td>Biology</td>
+            </tr>
+            <tr>
+               <td class="upper">Friday</td>
+               <td colspan="2" class="lab">LAB</td>
+               <td>Geography</td>
+               <td>Informatics</td>
+            </tr>
+            <tr>
+               <td class="upper">Saturday</td>
+               <td>Math</td>
+               <td>Physics</td>
+               <td colspan="2" class="lab">LAB</td>
+            </tr>
+            <tr>
+               <td class="upper">Sunday</td>
+               <td class="none" colspan="2"></td>
+               <td class="none"></td>
+               <td>Homework</td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Portfolio</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
+      <style>
+         @import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+         * {
+            box-sizing: border-box;
+         }
+
+         body {
+            background-color: #28223f;
+            font-family: "Montserrat", sans-serif;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            min-height: 100vh;
+            margin: 0;
+         }
+
+         h3 {
+            margin: 10px 0;
+         }
+
+         h6 {
+            margin: 5px 0;
+            text-transform: uppercase;
+         }
+
+         p {
+            font-size: 14px;
+            line-height: 21px;
+         }
+
+         .card-container {
+            background-color: #231e39;
+            border-radius: 5px;
+            box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+            color: #b3b8cd;
+            padding-top: 30px;
+            position: relative;
+            width: 350px;
+            max-width: 100%;
+            text-align: center;
+         }
+
+         .card-container .pro {
+            color: #231e39;
+            background-color: #febb0b;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 3px 7px;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+         }
+
+         .card-container .round {
+            border: 1px solid #03bfcb;
+            border-radius: 50%;
+            padding: 7px;
+         }
+
+         button.primary {
+            background-color: #03bfcb;
+            border: 1px solid #03bfcb;
+            border-radius: 3px;
+            color: #231e39;
+            font-family: Montserrat, sans-serif;
+            font-weight: 500;
+            padding: 10px 25px;
+         }
+
+         button.primary.ghost {
+            background-color: transparent;
+            color: #02899c;
+         }
+         button:hover {
+            filter: brightness(1.5);
+         }
+         .skills {
+            background-color: #1f1a36;
+            text-align: left;
+            padding: 15px;
+            margin-top: 30px;
+         }
+
+         .skills ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+         }
+
+         .skills ul li {
+            border: 1px solid #2d2747;
+            border-radius: 2px;
+            display: inline-block;
+            font-size: 12px;
+            margin: 0 7px 7px 0;
+            padding: 7px;
+         }
+         li:hover {
+            cursor: pointer;
+            user-select: none;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="card-container">
+         <img class="round" src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png" alt="user" />
+         <h3>Phong Vann</h3>
+         <h6>Viet Nam</h6>
+         <p>I'm student at Ton Duc Thang University</p>
+         <div class="buttons">
+            <button class="primary">Message</button>
+            <button class="primary ghost">Following</button>
+         </div>
+         <div class="skills">
+            <h6>Skills</h6>
+            <ul>
+               <li>Java</li>
+               <li>Back end</li>
+               <li>HTML</li>
+               <li>CSS</li>
+               <li>JavaScript</li>
+               <li>React</li>
+               <li>Node</li>
+            </ul>
+         </div>
+      </div>
+   </body>
+</html>

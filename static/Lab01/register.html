@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <style>
+         td {
+            vertical-align: top;
+         }
+         input:not(input[type="radio"], input[type="checkbox"], input[type="submit"], input[type="reset"]) {
+            width: 100%;
+         }
+         textarea {
+            width: 100%;
+         }
+      </style>
+   </head>
+   <body>
+      <form action="https://web-503073.herokuapp.com/lab01/register.php">
+         <table>
+            <tr>
+               <td><label for="name">Your name</label></td>
+               <td><input type="text" id="name" name="name" /></td>
+            </tr>
+            <tr>
+               <td><label for="email">Email address</label></td>
+               <td><input type="email" id="email" name="email" /></td>
+            </tr>
+            <tr>
+               <td><label for="birthday">Birthday</label></td>
+               <td><input type="date" id="Birthday" name="birthday" /></td>
+            </tr>
+            <tr>
+               <td><label for="birthtime">Birthtime</label></td>
+               <td><input type="time" id="birthtime" name="birthtime" /></td>
+            </tr>
+            <tr>
+               <td>Gender</td>
+               <td>
+                  <label for="male">Male</label>
+                  <input name="gender" type="radio" id="male" />
+                  <label for="female">Female</label>
+                  <input name="gender" type="radio" id="female" />
+               </td>
+            </tr>
+            <tr>
+               <td><label for="">Country</label></td>
+               <td>
+                  <select name="country" id="country">
+                     <option>Select a country</option>
+                     <optgroup label="Asia">
+                        <option value="1">Vietnam</option>
+                        <option value="2">Laos</option>
+                        <option value="3">Cambodia</option>
+                        <option value="4">Singapore</option>
+                     </optgroup>
+                     <optgroup label="Europe">
+                        <option value="5">France</option>
+                        <option value="6">Belgium</option>
+                        <option value="7">Italy</option>
+                        <option value="8">Finland</option>
+                        <option value="9">Ireland</option>
+                     </optgroup>
+                  </select>
+               </td>
+            </tr>
+            <tr>
+               <td>Favorite IDE</td>
+               <td>
+                  <div>
+                     <input type="checkbox" name="favorite_ide[]" value="1" />
+                     <label for="">Visual Studio Code</label>
+                  </div>
+                  <div>
+                     <input type="checkbox" name="favorite_ide[]" value="2" />
+                     <label for="">Sublime Text</label>
+                  </div>
+                  <div>
+                     <input type="checkbox" name="favorite_ide[]" value="3" />
+                     <label for="">Eclipse</label>
+                  </div>
+                  <div>
+                     <input type="checkbox" name="favorite_ide[]" value="4" />
+                     <label for="">Atom</label>
+                  </div>
+                  <div>
+                     <input type="checkbox" name="favorite_ide[]" value="5" />
+                     <label for="">Intelij Idea</label>
+                  </div>
+               </td>
+            </tr>
+            <tr>
+               <td>Toeic Score</td>
+               <td>
+                  <input type="range" name="toeic" min="5" max="990" step="5" />
+               </td>
+            </tr>
+            <tr>
+               <td>Message</td>
+               <td><textarea name="message" id="" cols="20" rows="5"></textarea></td>
+            </tr>
+            <tr>
+               <td></td>
+               <td>
+                  <input type="submit" value="register" />
+                  <input type="reset" value="reset" />
+               </td>
+            </tr>
+         </table>
+      </form>
+   </body>
+</html>
