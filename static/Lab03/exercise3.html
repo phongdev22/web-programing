@@ -62,12 +62,24 @@
       </div>
       <script>
          const message = document.querySelector("#display-message");
+         const color = document.querySelector("#color");
+         const bold = document.querySelector("#bold");
+         const italic = document.querySelector("#italic");
+         const underLine = document.querySelector("#underline");
+         const text = document.querySelector("#message");
+
          function changeMessage() {
-            const text = document.querySelector("#message");
             message.innerText = text.value;
          }
+
+         function removeChecked(check) {
+            const option = document.querySelectorAll('input[type="checkbox"]');
+            option.forEach((item) => {
+               item.checked = check;
+            });
+         }
+
          function changeColor() {
-            const color = document.querySelector("#color");
             switch (color.value) {
                case "0":
                   message.style.color = "black";
@@ -83,40 +95,37 @@
                   break;
             }
          }
+
          function changeBold() {
-            const option = document.querySelector("#bold");
-            if (option.checked) {
+            if (bold.checked) {
                message.style.fontWeight = "bold";
             } else {
                message.style.fontWeight = "normal";
             }
          }
+
          function changeItalic() {
-            const option = document.querySelector("#italic");
-            if (option.checked) {
+            if (italic.checked) {
                message.style.fontStyle = "italic";
             } else {
                message.style.fontStyle = "normal";
             }
          }
+
          function changeUnder() {
-            const option = document.querySelector("#underline");
-            if (option.checked) {
+            if (underLine.checked) {
                message.style.textDecoration = "underline";
             } else {
                message.style.textDecoration = "none";
             }
          }
+
          function restore() {
-            const color = document.querySelector("#color");
-            const option1 = document.querySelector("#bold");
-            const option2 = document.querySelector("#italic");
-            const option3 = document.querySelector("#underline");
-            color.value = "0";
-            option1.checked = false;
-            option2.checked = false;
-            option3.checked = false;
+            removeChecked(false);
+            text.value = "";
+            text.style = "";
             message.style = "";
+            color.value = "0";
          }
       </script>
    </body>

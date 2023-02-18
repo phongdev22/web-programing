@@ -46,15 +46,19 @@
       <script>
          const form = document.querySelector("#login");
          const errorMessage = form.querySelector(".errorMessage");
+
          form.querySelector("#email").onclick = () => {
             errorMessage.innerHTML = "";
          };
+
          form.querySelector("#pwd").onclick = () => {
             errorMessage.innerHTML = "";
          };
+
          form.addEventListener("submit", function (e) {
             const email = form.querySelector("#email");
             const pwd = form.querySelector("#pwd");
+
             if (!Validator.isEmail(email.value)) {
                console.log(email.value);
             } else {
@@ -62,6 +66,7 @@
                email.focus();
                e.preventDefault();
             }
+            
             if (Validator.isPassword(pwd.value)) {
                errorMessage.innerHTML = Validator.isPassword(pwd.value);
                pwd.focus();
@@ -70,6 +75,7 @@
                console.log(pwd.value);
             }
          });
+
       </script>
    </body>
 </html>

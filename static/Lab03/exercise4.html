@@ -38,7 +38,7 @@
       <button type="button" id="back">Back</button>
       <button type="button" id="slide-show">Start slideshow</button>
       <button type="button" id="next">Next</button>
-      <p id="image-label">pic_001.jpg (10/55)</p>
+      <p id="image-label"></p>
       <script>
          const option = document.querySelector("#imageList");
          const img = document.querySelector("img");
@@ -47,65 +47,79 @@
          const slide = document.querySelector("#slide-show");
          const text = document.querySelector("#image-label");
          const size = option.options.length;
+
+         option.selectedIndex = 0;
          let isSlide = false;
-         function display(value) {
-            img.setAttribute("src", `images/${value}`);
-         }
          let index = option.selectedIndex;
          let show;
-         option.selectedIndex = 0;
-         function updateDes(value) {
-            text.innerText = value;
+
+         function display(value, index) {
+            option.selectedIndex = index;
+            img.setAttribute("src", `images/${value}`);
+            updateDes(index);
          }
+
+         function disableButton(visible = false, message) {
+            next.disabled = visible;
+            back.disabled = visible;
+            slide.innerText = message;
+         }
+
+         function updateDes(index) {
+            let label = `${option.options[index].value}` + ` (${index + 1}` + `/${size})`;
+            text.innerText = label;
+         }
+
+         // first run
+         (() => {
+            updateDes(0);
+            disableButton(option.options[option.selectedIndex].value, "Star slide show");
+         })();
+
+         // handle event when select on change
          option.addEventListener("change", (e) => {
             display(option.value);
          });
+         // handle event when click back
          back.addEventListener("click", (e) => {
             let index = option.selectedIndex;
             if (index === 0 || index === -1) {
-               option.selectedIndex = size - 1;
-               let url = option.options[option.selectedIndex].value;
-               display(url);
+               let src = option.options[option.selectedIndex].value;
+               display(src, size - 1);
             } else {
-               option.selectedIndex = index - 1;
-               let url = option.options[index - 1].value;
-               display(url);
+               let src = option.options[index - 1].value;
+               display(src, index - 1);
             }
          });
+         // handle event when click next
          next.addEventListener("click", (e) => {
             let index = option.selectedIndex;
             if (index === -1 || index === size - 1) {
-               option.selectedIndex = 0;
-               let url = option.options[0].value;
-               display(option.options[0].value);
+               let src = option.options[0].value;
+               display(option.options[0].value, 0);
             } else {
-               option.selectedIndex = index + 1;
-               let url = option.options[index + 1].value;
-               display(url);
+               let src = option.options[index + 1].value;
+               display(src, index + 1);
             }
          });
+
+         //handle event whent click slide show
          slide.addEventListener("click", (e) => {
             isSlide = !isSlide;
             if (isSlide) {
-               next.disabled = true;
-               back.disabled = true;
-               slide.innerText = "Stop slide show";
+               disableButton(true, "Stop slide show");
                show = setInterval(() => {
+                  console.log(index);
                   if (index == -1 || index > size - 1) {
                      index = 0;
-                     option.selectedIndex = index;
-                     display(option.options[index].value);
+                     display(option.options[index].value, index);
                   } else {
                      ++index;
-                     option.selectedIndex = index;
-                     console.log(option.options[index - 1].value);
-                     display(option.options[index - 1].value);
+                     display(option.options[index - 1].value, index - 1);
                   }
                }, 1000);
             } else {
-               next.disabled = false;
-               back.disabled = false;
-               slide.innerText = "Start slide show";
+               disableButton(false, "Start slide show");
                clearInterval(show);
             }
          });
