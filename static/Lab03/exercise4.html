@@ -45,6 +45,7 @@
          const back = document.querySelector("#back");
          const next = document.querySelector("#next");
          const slide = document.querySelector("#slide-show");
+         const text = document.querySelector("#image-label");
          const size = option.options.length;
          let isSlide = false;
          function display(value) {
@@ -53,7 +54,9 @@
          let index = option.selectedIndex;
          let show;
          option.selectedIndex = 0;
-
+         function updateDes(value) {
+            text.innerText = value;
+         }
          option.addEventListener("change", (e) => {
             display(option.value);
          });
@@ -88,7 +91,6 @@
                back.disabled = true;
                slide.innerText = "Stop slide show";
                show = setInterval(() => {
-                  console.log(index);
                   if (index == -1 || index > size - 1) {
                      index = 0;
                      option.selectedIndex = index;
