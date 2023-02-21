@@ -6,9 +6,7 @@ class User extends Model
     private $userName;
     private $pwd;
     private $isActive;
-    public function __construct()
-    {
-    }
+
     public function update($id, $fields)
     {
     }
@@ -17,5 +15,10 @@ class User extends Model
     }
     public function search($id, $fields = null)
     {
+    }
+
+    public function __toString()
+    {
+        return "$this->userID | $this->userName | $this->isActive";
     }
 }
