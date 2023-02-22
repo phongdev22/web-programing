@@ -7,7 +7,13 @@ class Database
     private $db_user;
     private $db_pass;
     private $pdo;
-
+    /**
+     * Summary of __construct
+     * @param string $db_name
+     * @param string $db_host
+     * @param string $db_user
+     * @param string $db_pass
+     */
     public function __construct(
         $db_name,
         $db_host = 'localhost',
@@ -38,11 +44,10 @@ class Database
         echo "connect successfully<br>";
         return $this->pdo;
     }
-    public function query($statement, $one = false, $class = null)
+    public function query_db($statement, $one = true, $class = null)
     {
         $rs = $this->getPDO()->query($statement);
-        //$query = $this->getPDO()->prepare($statement);
-        //$query->execute();
+
         if (
             strpos(strtolower($statement), 'insert') === 0 ||
             strpos(strtolower($statement), 'delete') === 0 ||
@@ -51,10 +56,9 @@ class Database
         ) {
             return $rs;
         }
+
         if ($class === null) {
             $rs->setFetchMode(PDO::FETCH_OBJ);
-        } else {
-            $rs->setFetchMode(PDO::FETCH_CLASS, "User");
         }
         if ($one) {
             $data = $rs->fetch();
@@ -63,25 +67,22 @@ class Database
         }
         return $data;
     }
-    public function prepare($statement, $attributes, $one = false, $class = null)
+    public function prepare_db($statement, $attributes, $one = false, $class = null)
     {
         $rs = $this->getPDO()->prepare($statement);
         $rst = $rs->execute($attributes);
 
-        // if (
-        //     strpos(strtolower($statement), 'insert') === 0 ||
-        //     strpos(strtolower($statement), 'delete') === 0 ||
-        //     strpos(strtolower($statement), 'update') === 0
+        if (
+            strpos(strtolower($statement), 'insert') === 0 ||
+            strpos(strtolower($statement), 'delete') === 0 ||
+            strpos(strtolower($statement), 'update') === 0
 
-        // ) {
-        //     return $rst;
-        // }
-        // set type mode to query
+        ) {
+            return $rst;
+        }
 
         if ($class === null) {
             $rs->setFetchMode(PDO::FETCH_OBJ);
-        } else {
-            $rs->setFetchMode(PDO::FETCH_CLASS, $class);
         }
 
         if ($one) {

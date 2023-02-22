@@ -7,16 +7,6 @@ class User extends Model
     private $pwd;
     private $isActive;
 
-    public function update($id, $fields)
-    {
-    }
-    public function delete($id)
-    {
-    }
-    public function search($id, $fields = null)
-    {
-    }
-
     public function __toString()
     {
         return "$this->userID | $this->userName | $this->isActive";

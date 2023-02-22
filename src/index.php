@@ -1,8 +1,8 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    $title = "Login";
+require "C://xampp/htdocs/web/src/service/UserService.php";
 
-    header("location: http://localhost/web/src/view/login.php");
-}
+
+$user = new UserService();
+
+$user->existUser();

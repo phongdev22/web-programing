@@ -5,7 +5,10 @@ class Model
 {
     protected $db;
     protected $table;
-
+    /**
+     * 
+     * @param Database $db
+     */
     public function __construct(Database $db)
     {
         $this->db = $db;
@@ -34,17 +37,17 @@ class Model
     }
     public function query($statement, $attributes = null, $one = false)
     {
-        // var_dump(get_class($this));
-        // var_dump(str_replace('Model', 'Entity', get_class($this)));
+        var_dump(get_class($this));
+        var_dump(str_replace('Model', 'Entity', get_class($this)));
         if ($attributes) {
-            return $this->db->prepare(
+            return $this->db->prepare_db(
                 $statement,
                 $attributes,
                 $one,
                 str_replace('Model', 'Entity', get_class($this))
             );
         } else {
-            return $this->db->query(
+            return $this->db->query_db(
                 $statement,
                 $one,
                 str_replace('Model', 'Entity', get_class($this))
