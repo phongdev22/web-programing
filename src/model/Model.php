@@ -37,8 +37,8 @@ class Model
     }
     public function query($statement, $attributes = null, $one = false)
     {
-        var_dump(get_class($this));
-        var_dump(str_replace('Model', 'Entity', get_class($this)));
+        // var_dump(get_class($this));
+        // var_dump(str_replace('Model', 'Entity', get_class($this)));
         if ($attributes) {
             return $this->db->prepare_db(
                 $statement,

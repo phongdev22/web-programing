@@ -1,47 +1,47 @@
 <?php
-
-$email;
+$user;
 $pwd;
-$title;
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    global $email;
-    $email = $_POST["email"];
-    global $pwd;
-    $email = $_POST["pwd"];
-    global $title;
-    $title = "Login";
+if ($_POST) {
+    $GLOBALS["user"] = $_POST['user'];
+    $GLOBALS["pwd"] = $_POST['pwd'];
+    if ($user == "admin" && $pwd == "1234") {
+        header("Location: http://localhost/web/src/view/index.php");
+    }
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title ?></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../assets/styles/style.css" />
 </head>
 
 <body>
-    <div class="container col-3 mt-5">
-        <form action="" method="POST">
-            <div class=" form-outline mb-4">
-                <label class="form-label" for="email">Email address</label>
-                <input type="email" id="email" name="email" class="form-control" value="<?php echo $email ?>" />
+    <div class="wrapper">
+        <form id="login-form" method="POST">
+            <h1 id="login-heading">Login</h1>
+            <div class="form-group">
+                <label for="user" class="login-label text">User name</label>
+                <input type="text" id="user" class="login-input" value="<?php $user ?>" name="user" autocomplete="" />
             </div>
-            <div class="form-outline mb-4">
-                <label class="form-label" for="pwd">Password</label>
-                <input type="password" id="pwd" name="pwd" class="form-control" value="<?php echo $pwd ?>" />
+            <div class="form-group">
+                <label for="password" class="login-label text">Password</label>
+                <input type="password" id="password" class="login-input" value="<?php $pwd ?>" name="pwd" autocomplete="" />
             </div>
-            <button type="submit" class="btn btn-primary btn-block col-4">Sign in</button>
+            <div class="form-group">
+                <a href="forgetp.php" class="forgot-password text">Forgot password!</a>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn login-submit text">Let go!</button>
+            </div>
+            <div class="form-group">
+                <span class="has-account">Do you have account?</span>
+                <a class="sign-up text" href="signup.php"> Sign up</a>
+            </div>
         </form>
     </div>
 </body>

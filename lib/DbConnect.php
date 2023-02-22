@@ -67,10 +67,18 @@ class Database
         }
         return $data;
     }
+    /**
+     * Summary of prepare_db
+     * @param mixed $statement
+     * @param array $attributes
+     * @param mixed $one
+     * @param mixed $class
+     * 
+     */
     public function prepare_db($statement, $attributes, $one = false, $class = null)
     {
         $rs = $this->getPDO()->prepare($statement);
-        $rst = $rs->execute($attributes);
+        $count = $rs->execute($attributes);
 
         if (
             strpos(strtolower($statement), 'insert') === 0 ||
@@ -78,19 +86,19 @@ class Database
             strpos(strtolower($statement), 'update') === 0
 
         ) {
-            return $rst;
+            return $count;
         }
 
-        if ($class === null) {
-            $rs->setFetchMode(PDO::FETCH_OBJ);
-        }
+        // if ($class === null) {
+        //     $rs->setFetchMode(PDO::FETCH_OBJ);
+        // }
 
-        if ($one) {
-            $data = $rs->fetch();
-        } else {
-            $data = $rs->fetchAll();
-        }
+        // if ($one) {
+        //     $data = $rs->fetch();
+        // } else {
+        //     $data = $rs->fetchAll();
+        // }
 
-        return $data;
+        //return $data;
     }
 }
