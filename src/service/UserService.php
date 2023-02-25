@@ -1,16 +1,18 @@
 <?php
-require "C:/xampp/htdocs/web/src/model/User.php";
+require "C:/xampp/htdocs/web/src/model/Model.php";
 class UserService
 {
     private $repo;
 
     function __construct()
     {
-        $this->repo = new User(new Database('web'));
+        $this->repo = new Model(new Database('web'));
+        $this->repo->setTable("users");
     }
 
-    function getUser()
+    function getUser($data)
     {
-        return;
+        $user = $this->repo->delete(1);
+        return $user ?? "No user";
     }
 }

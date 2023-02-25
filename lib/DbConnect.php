@@ -41,10 +41,10 @@ class Database
             //         ');
             $this->pdo = $pdo;
         }
-        echo "connect successfully<br>";
+        //echo "connect successfully<br>";
         return $this->pdo;
     }
-    public function query_db($statement, $one = true, $class = null)
+    public function query_db($statement, $one = false, $class = null)
     {
         $rs = $this->getPDO()->query($statement);
 
@@ -69,7 +69,7 @@ class Database
     }
     /**
      * Summary of prepare_db
-     * @param mixed $statement
+     * @param string $statement
      * @param array $attributes
      * @param mixed $one
      * @param mixed $class
@@ -89,16 +89,16 @@ class Database
             return $count;
         }
 
-        // if ($class === null) {
-        //     $rs->setFetchMode(PDO::FETCH_OBJ);
-        // }
+        if ($class === null) {
+            $rs->setFetchMode(PDO::FETCH_OBJ);
+        }
 
-        // if ($one) {
-        //     $data = $rs->fetch();
-        // } else {
-        //     $data = $rs->fetchAll();
-        // }
+        if ($one) {
+            $data = $rs->fetch();
+        } else {
+            $data = $rs->fetchAll();
+        }
 
-        //return $data;
+        return $data;
     }
 }
