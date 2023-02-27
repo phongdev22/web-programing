@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Ex4 </title>
+    <style>
+        .banner-image{
+            background-color: #BEBEBE;
+            color: #848484;
+            height: 300px;
+            font-size: 50px;
+            letter-spacing: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .first-item{
+            margin-top: 15px;
+        }
+        .first-item p{
+            text-align: justify;
+        }
+        #main-text{
+            background-color: #737884;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 2px;
+            margin-top: 15px;
+        }
+        #copy {
+            padding: 25px;
+            text-align: center;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+        #text{
+            margin-bottom: 0px;
+        }
+        #bar-end {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 first-item">
+                <div class="banner-image">900 x 400</div>
+            </div>
+            <div class="col-lg-4 first-item">
+                <h4>Business Name or Tagline</h4>
+                <p>This is template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the stardard Bootstrap core components. Feel free to use this template for any project you want!</p>
+                <button type="button" class="btn btn-primary">Call to Action!</button>
+            </div>
+        </div>
+        <p id="main-text">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Card One</h3>
+                        <p id="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                    </div>
+                    <div class="card-footer"><button type="button" class="btn btn-primary">More Info</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Card Two</h3>
+                        <p id="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                    </div>
+                    <div class="card-footer"><button type="button" class="btn btn-primary">More Info</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Card Three</h3>
+                        <p id="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                    </div>
+                    <div class="card-footer" id="space-end"><button type="button" class="btn btn-primary">More Info</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="bar-end">
+        <a class="navbar-brand" href="#" id="copy">Copyright © Your website 2017</a>
+    </nav>
+</body>
+</html>

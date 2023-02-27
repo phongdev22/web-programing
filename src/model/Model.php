@@ -21,7 +21,6 @@ class Model
 
     public function insert($fields)
     {
-        //var_dump($fields);
         $sql_pairs = [];
         $attributes = [];
         foreach ($fields as $k => $v) {
@@ -38,13 +37,13 @@ class Model
      * @param mixed $fields
      * @return void
      */
-    public function update($id, $fields)
+    public function update($fields)
     {
         $sql_pairs = [];
         $attributes = [];
 
-        array_push($sql_pairs, "id= ?");
-        array_push($attributes, $id);
+        // array_push($sql_pairs, "id= ?");
+        // array_push($attributes, $id);
 
         foreach ($fields as $k => $v) {
             array_push($sql_pairs, "$k = ?");
@@ -55,9 +54,9 @@ class Model
         $this->query("UPDATE {$this->table} SET $sql_parts", $attributes);
     }
 
-    public function delete($id)
+    public function delete($userID)
     {
-        return $this->search(["id" => $id, "userName" => "admin_4"]);
+        return $this->search(["id" => $userID]);
     }
     public function search($fields = null)
     {

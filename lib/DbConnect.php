@@ -35,10 +35,6 @@ class Database
                 $this->db_pass
             );
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // $pdo->query('
-            //             SET NAMES utf8;
-            //             SET CHARACTER SET UTF8
-            //         ');
             $this->pdo = $pdo;
         }
         //echo "connect successfully<br>";

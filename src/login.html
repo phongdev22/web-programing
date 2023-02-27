@@ -13,7 +13,7 @@
             <h1 id="login-heading">Login</h1>
             <div class="form-group">
                <label for="user" class="login-label text">User name</label>
-               <input type="text" id="user" class="login-input" name="user" />
+               <input type="text" id="user" class="login-input" name="user" autofocus />
             </div>
             <div class="form-group">
                <label for="password" class="login-label text">Password</label>
@@ -38,8 +38,8 @@
          const queryString = window.location.search;
          const urlParams = new URLSearchParams(queryString);
          const mess = document.querySelector(".mess");
-
-         if (urlParams.get("islogin") == "false") {
+         console.log();
+         if (urlParams.get("islogin") === "false") {
             mess.style.display = "block";
             mess.style.color = "red";
             mess.style.fontWeight = "bold";

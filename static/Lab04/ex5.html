@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Ex5</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+      <style>
+         .navbar-brand {
+            margin-left: 50px;
+         }
+         #image {
+            background-color: #bebebe;
+            color: #848484;
+            height: 300px;
+            font-size: 75px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+         .image {
+            background-color: #bebebe;
+            color: #848484;
+            height: 150px;
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+         #card-last {
+            margin-top: 20px;
+         }
+         #bar-end {
+            margin-top: 20px;
+         }
+         #copy {
+            padding: 25px;
+            text-align: center;
+            margin: 0 auto;
+            font-size: 15px;
+         }
+         .checked {
+            color: orange;
+         }
+         #bar-top {
+            margin-bottom: 20px;
+         }
+      </style>
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="bar-top">
+         <!-- Brand -->
+         <a class="navbar-brand" href="#">Start Bootstrap</a>
+
+         <!-- Toggler/collapsibe Button -->
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+
+         <!-- Navbar links -->
+         <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Home</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Services</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Contact</a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-3">
+               <h1>Shop Name</h1>
+               <div class="list-group">
+                  <a href="#" class="list-group-item">Category 1</a>
+                  <a href="#" class="list-group-item">Category 2</a>
+                  <a href="#" class="list-group-item">Category 3</a>
+               </div>
+            </div>
+            <div class="col-lg-9">
+               <div id="demo" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ul class="carousel-indicators">
+                     <li data-target="#demo" data-slide-to="0" class="active"></li>
+                     <li data-target="#demo" data-slide-to="1"></li>
+                     <li data-target="#demo" data-slide-to="2"></li>
+                  </ul>
+
+                  <!-- The slideshow -->
+                  <div class="carousel-inner">
+                     <div class="carousel-item active" id="image">900 x 350</div>
+                     <div class="carousel-item" id="image">900 x 350</div>
+                     <div class="carousel-item" id="image">900 x 350</div>
+                  </div>
+
+                  <!-- Left and right controls -->
+                  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                     <span class="carousel-control-prev-icon"></span>
+                  </a>
+                  <a class="carousel-control-next" href="#demo" data-slide="next">
+                     <span class="carousel-control-next-icon"></span>
+                  </a>
+               </div>
+               <div class="row">
+                  <div class="col-lg-4">
+                     <div class="card" id="card-last">
+                        <div class="image">700 x 400</div>
+                        <div class="card-body">
+                           <h4 href="#" class="text-primary">Item One</h4>
+                           <h4 class="card-title">$24.99</h4>
+                           <p class="card-text">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing alit. Amet numquam aspernatur!
+                           </p>
+                        </div>
+                        <div class="card-footer">
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star"></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-4">
+                     <div class="card" id="card-last">
+                        <div class="image">700 x 400</div>
+                        <div class="card-body">
+                           <h4 href="#" class="text-primary">Item Two</h4>
+                           <h4 class="card-title">$24.99</h4>
+                           <p class="card-text">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing alit. Amet numquam aspernatur!
+                           </p>
+                        </div>
+                        <div class="card-footer">
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star"></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-4" id="card-last">
+                     <div class="card">
+                        <div class="image">700 x 400</div>
+                        <div class="card-body">
+                           <h4 href="#" class="text-primary">Item Three</h4>
+                           <h4 class="card-title">$24.99</h4>
+                           <p class="card-text">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing alit. Amet numquam aspernatur!
+                           </p>
+                        </div>
+                        <div class="card-footer">
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star"></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-4">
+                     <div class="card" id="card-last">
+                        <div class="image">700 x 400</div>
+                        <div class="card-body">
+                           <h4 href="#" class="text-primary">Item Four</h4>
+                           <h4 class="card-title">$24.99</h4>
+                           <p class="card-text">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing alit. Amet numquam aspernatur!
+                           </p>
+                        </div>
+                        <div class="card-footer">
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star"></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-4">
+                     <div class="card" id="card-last">
+                        <div class="image">700 x 400</div>
+                        <div class="card-body">
+                           <h4 href="#" class="text-primary">Item Five</h4>
+                           <h4 class="card-title">$24.99</h4>
+                           <p class="card-text">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing alit. Amet numquam aspernatur!
+                           </p>
+                        </div>
+                        <div class="card-footer">
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star"></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-4">
+                     <div class="card" id="card-last">
+                        <div class="image">700 x 400</div>
+                        <div class="card-body">
+                           <h4 href="#" class="text-primary">Item Six</h4>
+                           <h4 class="card-title">$24.99</h4>
+                           <p class="card-text">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing alit. Amet numquam aspernatur!
+                           </p>
+                        </div>
+                        <div class="card-footer">
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star"></span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="bar-end">
+         <a class="navbar-brand" href="#" id="copy">Copyright © Your website 2017</a>
+      </nav>
+   </body>
+</html>

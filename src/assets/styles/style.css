@@ -6,7 +6,6 @@
     box-sizing: border-box;
     overflow: hidden;
     font-family: "Poppins" , sans-serif;
-    transition: all .2s ease-in;
 }
 
 a:visited{
@@ -104,3 +103,6 @@ button:hover{
     font-weight: 600;
 }
 
+.mess{
+    transition: all .2s ease-in;
+}
