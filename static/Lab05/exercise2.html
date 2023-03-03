@@ -14,6 +14,36 @@
             font-size: 14px;
          }
       </style>
+      <script>
+         function showError(message) {
+            $(".errorMessage").html(message);
+            $(".errorMessage").show();
+         }
+
+         $(() => {
+            $("#form").submit((e) => {
+               const email = $("#email").val();
+               const password = $("#pwd").val();
+
+               if (email.length === 0) {
+                  showError("Vui long nhap email");
+                  e.preventDefault();
+               } else if (email.length < 6) {
+                  showError("Dia chi email phai co toi thieu 6 ki tu");
+                  e.preventDefault();
+               } else if (!email.includes("@")) {
+                  showError("Dia chi email khéng hop le");
+                  e.preventDefault();
+               } else if (password.length === 0) {
+                  showError("Vui long nhap mat khau");
+                  e.preventDefault();
+               } else if (password.length < 6 || length.length > 20) {
+                  showError("Mat khau phai co tw 6 den 20 ky tu");
+                  e.preventDefault();
+               }
+            });
+         });
+      </script>
    </head>
 
    <body>

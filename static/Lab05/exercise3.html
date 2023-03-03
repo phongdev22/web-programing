@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script>
+         function allowDrop(e, that) {
+            if (that.childElementCount === 0) {
+               e.preventDefault();
+               console.log("allow drop");
+            }
+         }
+
+         function drag(e) {
+            console.log("drag");
+            e.dataTransfer.setData("imageID", e.target.id);
+         }
+
+         function drop(e) {
+            console.log("drop");
+            e.preventDefault();
+            var data = e.dataTransfer.getData("imageID");
+            e.target.appendChild(document.getElementById(data));
+         }
+
+         $(document).ready(() => {
+            $("img").click(function () {
+               let angle = (($(this).data("angle") || 0) + 90) % 360;
+               $(this).css("transform", `rotate(${angle}deg)`);
+               $(this).data("angle", angle);
+            });
+         });
+      </script>
+      <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+         }
+         h1 {
+            padding: 20px 0;
+         }
+         img {
+            width: 100%;
+         }
+         .image-cell {
+            width: 100%;
+            max-width: 200px;
+            border: 1px solid black;
+            padding: 1px;
+         }
+         .game {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            width: 300px;
+            height: 300px;
+            margin: 10px auto;
+         }
+
+         .image-list {
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            margin: 0 auto;
+            gap: 10px 5px;
+         }
+         .image-list > .image-cell {
+            height: 150px;
+            width: 150px;
+         }
+      </style>
+   </head>
+   <body>
+      <h1>Xếp hình online</h1>
+      <div class="game">
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)"></div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)"></div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)"></div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)"></div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)"></div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)"></div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)"></div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)"></div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)"></div>
+      </div>
+
+      <div class="image-list">
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)">
+            <img src="./images/cntt_01.gif" ondragstart="drag(event)" id="image1" alt="" draggable="true" />
+         </div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)">
+            <img src="./images/cntt_02.gif" ondragstart="drag(event)" id="image2" alt="" draggable="true" />
+         </div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)">
+            <img src="./images/cntt_03.gif" ondragstart="drag(event)" id="image3" alt="" draggable="true" />
+         </div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)">
+            <img src="./images/cntt_04.gif" ondragstart="drag(event)" id="image4" alt="" draggable="true" />
+         </div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)">
+            <img src="./images/cntt_05.gif" ondragstart="drag(event)" id="image5" alt="" draggable="true" />
+         </div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)">
+            <img src="./images/cntt_06.gif" ondragstart="drag(event)" id="image6" alt="" draggable="true" />
+         </div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)">
+            <img src="./images/cntt_07.gif" ondragstart="drag(event)" id="image7" alt="" draggable="true" />
+         </div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)">
+            <img src="./images/cntt_08.gif" ondragstart="drag(event)" id="image8" alt="" draggable="true" />
+         </div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)">
+            <img src="./images/cntt_09.gif" ondragstart="drag(event)" id="image9" alt="" draggable="true" />
+         </div>
+         <div class="image-cell" ondragover="allowDrop(event,this)" ondrop="drop(event)">
+            <img src="./images/cntt_10.gif" ondragstart="drag(event)" id="image10" alt="" draggable="true" />
+         </div>
+      </div>
+   </body>
+</html>
